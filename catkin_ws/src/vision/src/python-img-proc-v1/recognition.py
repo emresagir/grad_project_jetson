@@ -127,8 +127,8 @@ class FaceRecognition:
         self.encode_faces()
 
     def encode_faces(self):
-        for image in os.listdir('/home/emre/grad_project/catkin_ws/src/testing_pack/scripts/python-img-proc-v1/faces'):
-            face_image = face_recognition.load_image_file(f"/home/emre/grad_project/catkin_ws/src/testing_pack/scripts/python-img-proc-v1/faces/{image}")
+        for image in os.listdir('/home/jetson/grad_project_jetson/catkin_ws/src/vision/src/python-img-proc-v1/faces'):
+            face_image = face_recognition.load_image_file(f"/home/jetson/grad_project_jetson/catkin_ws/src/vision/src/python-img-proc-v1/faces/{image}")
             face_encoding = face_recognition.face_encodings(face_image)[0]
 
             self.known_face_encodings.append(face_encoding)
@@ -320,7 +320,7 @@ class FaceRecognition:
 
 if __name__ == '__main__':
     rospy.init_node("vision" )
-    rospy.loginfo("WASSUP BTCHES ̿̿ ̿̿ ̿̿ ̿'̿'\̵͇̿̿\з= ( ▀ ͜͞ʖ▀) =ε/̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿ ")
+    rospy.loginfo("WASSUP ̿̿ ̿̿ ̿̿ ̿'̿'\̵͇̿̿\з= ( ▀ ͜͞ʖ▀) =ε/̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿ ")
     fr = FaceRecognition()
     
     rospy.Subscriber('video_frames', Image, callback) 

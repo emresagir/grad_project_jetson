@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/jetson/grad_project/catkin_ws/devel/setup.sh

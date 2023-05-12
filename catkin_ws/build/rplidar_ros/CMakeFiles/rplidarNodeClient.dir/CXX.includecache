@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/jetson/grad_project/catkin_ws/src/rplidar_ros/src/client.cpp
+/home/jetson/grad_project_jetson/catkin_ws/src/rplidar_ros/src/client.cpp
 ros/ros.h
-/home/jetson/grad_project/catkin_ws/src/rplidar_ros/src/ros/ros.h
+/home/jetson/grad_project_jetson/catkin_ws/src/rplidar_ros/src/ros/ros.h
 sensor_msgs/LaserScan.h
-/home/jetson/grad_project/catkin_ws/src/rplidar_ros/src/sensor_msgs/LaserScan.h
+/home/jetson/grad_project_jetson/catkin_ws/src/rplidar_ros/src/sensor_msgs/LaserScan.h
 
 /opt/ros/noetic/include/ros/advertise_options.h
 ros/forwards.h

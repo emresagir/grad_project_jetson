@@ -1,4 +1,4 @@
-prefix=/home/jetson/grad_project/catkin_ws/devel
+prefix=/home/jetson/grad_project_jetson/catkin_ws/devel
 
 Name: rplidar_ros
 Description: Description of rplidar_ros

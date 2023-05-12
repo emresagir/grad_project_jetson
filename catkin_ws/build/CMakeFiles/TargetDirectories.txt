@@ -69,3 +69,10 @@
 /home/jetson/grad_project_jetson/catkin_ws/build/rplidar_ros/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir
 /home/jetson/grad_project_jetson/catkin_ws/build/rplidar_ros/CMakeFiles/test.dir
 /home/jetson/grad_project_jetson/catkin_ws/build/rplidar_ros/CMakeFiles/edit_cache.dir
+/home/jetson/grad_project_jetson/catkin_ws/build/vision/CMakeFiles/install/strip.dir
+/home/jetson/grad_project_jetson/catkin_ws/build/vision/CMakeFiles/install/local.dir
+/home/jetson/grad_project_jetson/catkin_ws/build/vision/CMakeFiles/install.dir
+/home/jetson/grad_project_jetson/catkin_ws/build/vision/CMakeFiles/list_install_components.dir
+/home/jetson/grad_project_jetson/catkin_ws/build/vision/CMakeFiles/rebuild_cache.dir
+/home/jetson/grad_project_jetson/catkin_ws/build/vision/CMakeFiles/edit_cache.dir
+/home/jetson/grad_project_jetson/catkin_ws/build/vision/CMakeFiles/test.dir

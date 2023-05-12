@@ -1,2 +1,2 @@
-rplidar_ros
+rplidar_ros:vision
 -DCATKIN_DEVEL_PREFIX=/home/jetson/grad_project_jetson/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/jetson/grad_project_jetson/catkin_ws/install -G Unix Makefiles

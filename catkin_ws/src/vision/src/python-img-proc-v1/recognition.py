@@ -185,7 +185,7 @@ class FaceRecognition:
                     name = self.known_face_names[best_match_index]
                     confidence = face_confidence(face_distances[best_match_index])
 
-                self.face_names.append(f'{name} ({confidence})')
+                self.face_names.append(f'{name}    ({confidence})')
 
         self.process_current_frame = not self.process_current_frame
 
@@ -201,6 +201,10 @@ class FaceRecognition:
             cv2.rectangle(frame, (left, top), (right, bottom), (186,85,211), 2)
             cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (186,85,211), cv2.FILLED)
             cv2.putText(frame, name, (left + 6, bottom - 6), cv2.FONT_HERSHEY_DUPLEX, 0.8, (255, 255, 255), 1)
+            img_name = name[:7]
+            path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            absolute_path = os.path.join(path, "img_process")
+            cv2.imwrite(os.path.join(absolute_path, img_name + '.jpg'), frame)
 
 #############################################################################
 #############################################################################

@@ -1,6 +1,7 @@
 import time
 import socket
 import os
+import rospy
 from watchdog.observers import Observer
 from watchdog.events import LoggingEventHandler
 

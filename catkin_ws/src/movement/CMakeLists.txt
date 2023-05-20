@@ -8,8 +8,10 @@ project(movement)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  rosconsole
   roscpp
-  std_msgs
+  sensor_msgs
+  std_srvs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -69,7 +71,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   std_msgs
+#   sensor_msgs
 # )
 
 ################################################
@@ -104,7 +106,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES movement
-#  CATKIN_DEPENDS roscpp std_msgs
+#  CATKIN_DEPENDS rosconsole roscpp sensor_msgs std_srvs
 #  DEPENDS system_lib
 )
 

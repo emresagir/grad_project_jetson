@@ -203,7 +203,7 @@ class FaceRecognition:
             cv2.putText(frame, name, (left + 6, bottom - 6), cv2.FONT_HERSHEY_DUPLEX, 0.8, (255, 255, 255), 1)
             img_name = name[:7]
             path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            absolute_path = os.path.join(path, "img_process")
+            absolute_path = os.path.join(path, "imagesCV")
             cv2.imwrite(os.path.join(absolute_path, img_name + '.jpg'), frame)
 
 #############################################################################

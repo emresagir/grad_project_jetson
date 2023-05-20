@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import time
 import socket
 import os
@@ -13,7 +15,7 @@ absolute_path = os.path.dirname(os.path.abspath(__file__))
 upper_directory = os.path.dirname(absolute_path)
 
 #upper ile değiştir
-folderPathCV = os.path.join(absolute_path, "img_process")
+folderPathCV = os.path.join(absolute_path, "imagesCV")
 folderPathMap = os.path.join(absolute_path, "imagesMap")
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -87,6 +89,7 @@ def send(event):
 def on_modified(event):
     # call your function here
     print(event)
+    time.sleep(1)
     send(event)
 
 

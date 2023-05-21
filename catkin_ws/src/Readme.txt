@@ -18,6 +18,10 @@ roslaunch rplidar_ros view_rplidar.launch
 
 #############################################
 
+core
+roslaunch rplidar_ros rplidar.launch
+
+
 ##########https://softwaretester.info/rplidar-a1-with-ros-melodic-on-ubuntu-18-04/#############
 
 Çıkıntılı noktası öne bakacak şekilde durduğunda, sol taraf +90 derece, sağ taraf -90 derece.

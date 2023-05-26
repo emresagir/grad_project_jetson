@@ -1091,6 +1091,19 @@ map_to_image_node/fast:
 .PHONY : map_to_image_node/fast
 
 #=============================================================================
+# Target rules for targets named movement
+
+# Build rule for target.
+movement: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 movement
+.PHONY : movement
+
+# fast build rule for target.
+movement/fast:
+	$(MAKE) -f movement/CMakeFiles/movement.dir/build.make movement/CMakeFiles/movement.dir/build
+.PHONY : movement/fast
+
+#=============================================================================
 # Target rules for targets named std_srvs_generate_messages_py
 
 # Build rule for target.
@@ -1707,6 +1720,7 @@ help:
 	@echo "... sensor_msgs_generate_messages_eus"
 	@echo "... sensor_msgs_generate_messages_cpp"
 	@echo "... map_to_image_node"
+	@echo "... movement"
 	@echo "... std_srvs_generate_messages_py"
 	@echo "... std_srvs_generate_messages_nodejs"
 	@echo "... std_srvs_generate_messages_lisp"

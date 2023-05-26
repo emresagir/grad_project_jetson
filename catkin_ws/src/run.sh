@@ -9,6 +9,8 @@ lidarc1='ls -la /dev | grep ttyUSB'
 lidarc2='sudo chmod 0666 /dev/ttyUSB0'
 lidarc3='roslaunch rplidar_ros view_rplidar.launch'
 tcpcmd='rosrun vision TCP_client.py'
+movcmd='rosrun movement movement'
+
 
 
 
@@ -48,6 +50,12 @@ elif [ "$1" == "tcp" ];then
 	gnome-terminal --command="bash -c '$tcpcmd; $SHELL'" 
 	sleep 8
 
+elif [ "$1" == "lidar" ];then #this part runs all the nodes.
+	echo "lidar is running"
+	gnome-terminal --command="bash -c '$lidarc1; $lidarc2; $lidarc3; $SHELL'"
+	sleep 15
+	gnome-terminal --command="bash -c '$movcmd; $SHELL'" 
+	sleep 5
 
 #elif [[$1 -eq "tcp_test"]]
 #then

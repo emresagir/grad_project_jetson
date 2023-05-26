@@ -103,12 +103,10 @@ find_package(catkin REQUIRED COMPONENTS
 ## LIBRARIES: libraries you create in this project that dependent projects also need
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
-catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES movement
-#  CATKIN_DEPENDS rosconsole roscpp sensor_msgs std_srvs
-#  DEPENDS system_lib
-)
+catkin_package()
+
+add_executable(movement src/movement.cpp)
+target_link_libraries(movement ${catkin_LIBRARIES})
 
 ###########
 ## Build ##

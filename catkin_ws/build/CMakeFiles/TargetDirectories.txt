@@ -171,6 +171,7 @@
 /home/jetson/grad_project_jetson/catkin_ws/build/movement/CMakeFiles/install/local.dir
 /home/jetson/grad_project_jetson/catkin_ws/build/movement/CMakeFiles/edit_cache.dir
 /home/jetson/grad_project_jetson/catkin_ws/build/movement/CMakeFiles/test.dir
+/home/jetson/grad_project_jetson/catkin_ws/build/movement/CMakeFiles/movement.dir
 /home/jetson/grad_project_jetson/catkin_ws/build/movement/CMakeFiles/std_srvs_generate_messages_py.dir
 /home/jetson/grad_project_jetson/catkin_ws/build/movement/CMakeFiles/std_srvs_generate_messages_nodejs.dir
 /home/jetson/grad_project_jetson/catkin_ws/build/movement/CMakeFiles/std_srvs_generate_messages_lisp.dir

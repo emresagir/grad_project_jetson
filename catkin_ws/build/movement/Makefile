@@ -168,6 +168,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+movement/CMakeFiles/movement.dir/rule:
+	cd /home/jetson/grad_project_jetson/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 movement/CMakeFiles/movement.dir/rule
+.PHONY : movement/CMakeFiles/movement.dir/rule
+
+# Convenience name for target.
+movement: movement/CMakeFiles/movement.dir/rule
+
+.PHONY : movement
+
+# fast build rule for target.
+movement/fast:
+	cd /home/jetson/grad_project_jetson/catkin_ws/build && $(MAKE) -f movement/CMakeFiles/movement.dir/build.make movement/CMakeFiles/movement.dir/build
+.PHONY : movement/fast
+
+# Convenience name for target.
 movement/CMakeFiles/std_srvs_generate_messages_py.dir/rule:
 	cd /home/jetson/grad_project_jetson/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 movement/CMakeFiles/std_srvs_generate_messages_py.dir/rule
 .PHONY : movement/CMakeFiles/std_srvs_generate_messages_py.dir/rule
@@ -242,6 +257,33 @@ std_srvs_generate_messages_cpp/fast:
 	cd /home/jetson/grad_project_jetson/catkin_ws/build && $(MAKE) -f movement/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make movement/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
 .PHONY : std_srvs_generate_messages_cpp/fast
 
+src/movement.o: src/movement.cpp.o
+
+.PHONY : src/movement.o
+
+# target to build an object file
+src/movement.cpp.o:
+	cd /home/jetson/grad_project_jetson/catkin_ws/build && $(MAKE) -f movement/CMakeFiles/movement.dir/build.make movement/CMakeFiles/movement.dir/src/movement.cpp.o
+.PHONY : src/movement.cpp.o
+
+src/movement.i: src/movement.cpp.i
+
+.PHONY : src/movement.i
+
+# target to preprocess a source file
+src/movement.cpp.i:
+	cd /home/jetson/grad_project_jetson/catkin_ws/build && $(MAKE) -f movement/CMakeFiles/movement.dir/build.make movement/CMakeFiles/movement.dir/src/movement.cpp.i
+.PHONY : src/movement.cpp.i
+
+src/movement.s: src/movement.cpp.s
+
+.PHONY : src/movement.s
+
+# target to generate assembly for a file
+src/movement.cpp.s:
+	cd /home/jetson/grad_project_jetson/catkin_ws/build && $(MAKE) -f movement/CMakeFiles/movement.dir/build.make movement/CMakeFiles/movement.dir/src/movement.cpp.s
+.PHONY : src/movement.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -252,6 +294,7 @@ help:
 	@echo "... install/local"
 	@echo "... edit_cache"
 	@echo "... test"
+	@echo "... movement"
 	@echo "... std_srvs_generate_messages_py"
 	@echo "... std_srvs_generate_messages_nodejs"
 	@echo "... std_srvs_generate_messages_lisp"
@@ -260,6 +303,9 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... std_srvs_generate_messages_cpp"
+	@echo "... src/movement.o"
+	@echo "... src/movement.i"
+	@echo "... src/movement.s"
 .PHONY : help
 
 

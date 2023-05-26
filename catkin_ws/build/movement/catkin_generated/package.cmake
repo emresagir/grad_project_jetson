@@ -1,6 +1,6 @@
 set(_CATKIN_CURRENT_PACKAGE "movement")
 set(movement_VERSION "0.0.0")
-set(movement_MAINTAINER "jetson <jetson@todo.todo>")
+set(movement_MAINTAINER "emre <jetson@todo.todo>")
 set(movement_PACKAGE_FORMAT "2")
 set(movement_BUILD_DEPENDS "rosconsole" "roscpp" "sensor_msgs" "std_srvs")
 set(movement_BUILD_EXPORT_DEPENDS "rosconsole" "roscpp" "sensor_msgs" "std_srvs")

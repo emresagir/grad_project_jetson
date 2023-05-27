@@ -11,6 +11,10 @@ ros/ros.h
 /home/jetson/grad_project_jetson/catkin_ws/src/movement/src/ros/ros.h
 sensor_msgs/LaserScan.h
 /home/jetson/grad_project_jetson/catkin_ws/src/movement/src/sensor_msgs/LaserScan.h
+std_msgs/String.h
+/home/jetson/grad_project_jetson/catkin_ws/src/movement/src/std_msgs/String.h
+sstream
+-
 
 /opt/ros/noetic/include/ros/advertise_options.h
 ros/forwards.h
@@ -679,6 +683,22 @@ std_msgs/Header.h
 -
 
 /opt/ros/noetic/include/std_msgs/Header.h
+string
+-
+vector
+-
+memory
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
+/opt/ros/noetic/include/std_msgs/String.h
 string
 -
 vector

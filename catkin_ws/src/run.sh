@@ -8,9 +8,10 @@ reccmd='rosrun vision recognition.py'
 lidarc1='ls -la /dev | grep ttyUSB'
 lidarc2='sudo chmod 0666 /dev/ttyUSB0'
 lidarc3='roslaunch rplidar_ros view_rplidar.launch'
+lidarcslam='roslaunch rplidar_ros rplidar.launch'
 tcpcmd='rosrun vision TCP_client.py'
 movcmd='rosrun movement movement'
-
+slamcmd='roslaunch hector_slam_launch tutorial.launch'
 
 
 
@@ -57,6 +58,14 @@ elif [ "$1" == "lidar" ];then #this part runs all the nodes.
 	gnome-terminal --command="bash -c '$movcmd; $SHELL'" 
 	sleep 5
 
+elif [ "$1" == "slam" ];then #this part runs all the nodes.
+	echo "slam is running"
+	gnome-terminal --command="bash -c '$lidarc1; $lidarc2; $lidarcslam; $SHELL'"
+	sleep 15
+	gnome-terminal --command="bash -c '$movcmd; $SHELL'" 
+	sleep 5
+	gnome-terminal --command="bash -c '$slamcmd; $SHELL'"
+	sleep 15
 #elif [[$1 -eq "tcp_test"]]
 #then
 

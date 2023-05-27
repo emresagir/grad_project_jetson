@@ -202,7 +202,10 @@ class FaceRecognition:
             cv2.rectangle(frame, (left, top), (right, bottom), (186,85,211), 2)
             cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (186,85,211), cv2.FILLED)
             cv2.putText(frame, name, (left + 6, bottom - 6), cv2.FONT_HERSHEY_DUPLEX, 0.8, (255, 255, 255), 1)
+            
             img_name = name[:7]
+            img_name = img_name.replace(" ", "")
+            
             path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
             absolute_path = os.path.join(path, "imagesCV")
             

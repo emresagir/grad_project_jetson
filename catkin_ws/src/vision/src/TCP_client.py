@@ -19,6 +19,7 @@ folderPathCV = os.path.join(absolute_path, "imagesCV")
 folderPathMap = os.path.join(absolute_path, "imagesMap")
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client_socket.setsocketopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
 client_socket.connect((HOST, PORT))
 
 
@@ -44,7 +45,7 @@ def send(event):
 
 	totalPacketSize = 9 + 512*40 + 9
 	TCP_PacketNumber = 1
-	packetSize = 256
+	packetSize = 512
 	localChecksum = 0
 	TCP_Checksum = 0
 
@@ -76,7 +77,7 @@ def send(event):
 
 		print(str(TCP_Checksum) + "\n")
 		
-		if ((TCP_PacketNumber % 40) == 0) or (TCP_PacketNumber == TCP_TotalPacketNumber):
+		if ((TCP_PacketNumber % 100) == 0) or (TCP_PacketNumber == TCP_TotalPacketNumber):
 			ACK_NCK = client_socket.recv(4).decode('latin-1')
 			print(ACK_NCK + "\n")
    

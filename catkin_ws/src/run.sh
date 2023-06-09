@@ -12,6 +12,8 @@ lidarcslam='roslaunch rplidar_ros rplidar.launch'
 tcpcmd='rosrun vision TCP_client.py'
 movcmd='rosrun movement movement'
 slamcmd='roslaunch hector_slam_launch tutorial.launch'
+serialcmk='rosrun movement seriall.py'
+
 
 
 
@@ -28,12 +30,20 @@ sleep 5
 
 if [ "$1" == "all" ];then #this part runs all the nodes.
 	echo "all is running"
+	#gnome-terminal --command="bash -c '$tcpcmd; $SHELL'"  #NOT TESTED YET.
+	#sleep 10
 	gnome-terminal --command="bash -c '$webcamcmd; $SHELL'" 
 	sleep 8
 	gnome-terminal --command="bash -c '$reccmd; $SHELL'"
 	sleep 70
-	gnome-terminal --command="bash -c '$lidarc1; $lidarc2; $lidarc3; $SHELL'"
+	gnome-terminal --command="bash -c '$lidarc1; $lidarc2; $lidarcslam; $SHELL'"
 	sleep 50
+	#gnome-terminal --command="bash -c '$serialcmd; $SHELL'"  #NOT TESTED YET.
+	#sleep 5
+	gnome-terminal --command="bash -c '$movcmd; $SHELL'" 
+	sleep 5
+	gnome-terminal --command="bash -c '$slamcmd; $SHELL'"
+	sleep 15
 
 elif [ "$1" == "vision" ];then #this part runs only the face recognition.
 	echo "vision part is running"

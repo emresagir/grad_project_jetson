@@ -5,7 +5,7 @@ import socket
 import os
 import rospy
 from watchdog.observers import Observer
-from watchdog.events import FileSystemEventHandler
+from watchdog.events import LoggingEventHandler
 
 #HOST = "127.0.0.1"
 HOST = "20.203.172.10"
@@ -19,7 +19,7 @@ folderPathCV = os.path.join(absolute_path, "imagesCV")
 folderPathMap = os.path.join(absolute_path, "imagesMap")
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client_socket.setsocketopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
+client_socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
 client_socket.connect((HOST, PORT))
 
 
@@ -45,7 +45,7 @@ def send(event):
 
 	totalPacketSize = 9 + 512*40 + 9
 	TCP_PacketNumber = 1
-	packetSize = 512
+	packetSize = 256
 	localChecksum = 0
 	TCP_Checksum = 0
 
@@ -77,7 +77,7 @@ def send(event):
 
 		print(str(TCP_Checksum) + "\n")
 		
-		if ((TCP_PacketNumber % 100) == 0) or (TCP_PacketNumber == TCP_TotalPacketNumber):
+		if ((TCP_PacketNumber % 20) == 0) or (TCP_PacketNumber == TCP_TotalPacketNumber):
 			ACK_NCK = client_socket.recv(4).decode('latin-1')
 			print(ACK_NCK + "\n")
    
@@ -87,19 +87,29 @@ def send(event):
  
 	print("-- END OF SEND --")
 
-class FileModifiedHandler(FileSystemEventHandler):
+class FileModifiedHandler(LoggingEventHandler):
+		
+
+
+
+
         
     def on_modified(self, event):
-        if (not event.is_directory):
-            file_path = event.src_path
-            file_name = os.path.basename(file_path)
-            folder_path = os.path.dirname(file_path)
-            print(file_path)
-            if file_name:
-                time.sleep(1)
-                send(event)
+        file_path = event.src_path
+        file_name = os.path.basename(file_path)
+        folder_path = os.path.dirname(file_path)
+        print(file_path)
+        time.sleep(1)
+        send(event)
 
 
+def on_created(event):
+    file_path = event.src_path
+    file_name = os.path.basename(file_path)
+    folder_path = os.path.dirname(file_path)
+    print(file_path)
+    time.sleep(1)
+    send(event)
 
 
 if __name__ == "__main__":
@@ -109,8 +119,11 @@ if __name__ == "__main__":
     messageCom ='{:0>10}'.format(messageCom)
     client_socket.send(messageCom.encode('latin-1'))
  
-    event_handler1 = FileModifiedHandler()
-    event_handler2 = FileModifiedHandler()
+    event_handler1 = LoggingEventHandler()
+    event_handler2 = LoggingEventHandler()
+    
+    event_handler1.on_created = on_created
+    event_handler2.on_created = on_created
  
     observer1 = Observer()
     observer2 = Observer()

@@ -83,11 +83,11 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
                 
                 if((scan->ranges[i]*100) < 100){
                     
-                    ss << '#' << '0' << (int)(100*scan->ranges[i]) << '#';
+                    ss << '%' << '0' << (int)(100*scan->ranges[i]) << '!';
                 }
                 else{
                     
-                    ss << '#' << (int)(100*scan->ranges[i]) << '#';
+                    ss << '%' << (int)(100*scan->ranges[i]) << '!';
                 }
                 
                 msg.data = ss.str();

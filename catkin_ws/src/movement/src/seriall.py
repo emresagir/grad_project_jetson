@@ -12,9 +12,8 @@ timeout = 5)
 
 
 def callback(data):
-		print(data)
-
-		stm.write(data.encode())
+		print(str(data)[7:-1])
+		stm.write(str(data)[7:-1].encode())
 
 if __name__ == '__main__':
     rospy.init_node("serial")

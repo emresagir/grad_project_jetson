@@ -2,12 +2,19 @@
 import rospy
 import serial
 import time
+from std_msgs.msg import String
 
-stm = serial.Serial(
+'''stm = serial.Serial(
 port = '/dev/ttyUSB1',
 baudrate = 9600,
-timeout = 5)
+timeout = 5)'''
 
+
+
+def callback(data):
+		print(data)
+
+		#stm.write(data.encode())
 
 if __name__ == '__main__':
     rospy.init_node("serial")
@@ -15,14 +22,13 @@ if __name__ == '__main__':
     rospy.logwarn("WARNING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ^_^ şaka eheh")
     rospy.loginfo("infosfor")
 
-while  True:
-	try:
-		stm.write("1".encode())
-		time.sleep(2)
-		stm.write("0".encode())
-		time.sleep(2)
+    rospy.Subscriber("movcmd", String, callback)
 
-	except Exception as e:
-		print(e)
-		stm.close()
-	pass
+    rospy.spin()
+
+
+
+		
+		
+
+

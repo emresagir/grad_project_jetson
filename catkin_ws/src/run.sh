@@ -12,7 +12,7 @@ lidarcslam='roslaunch rplidar_ros rplidar.launch'
 tcpcmd='rosrun vision TCP_client.py'
 movcmd='rosrun movement movement'
 slamcmd='roslaunch hector_slam_launch tutorial.launch'
-serialcmk='rosrun movement seriall.py'
+serialcmd='rosrun movement seriall.py'
 
 
 
@@ -24,6 +24,8 @@ echo "argumant 1 is $1"
 gnome-terminal --command="bash -c '$cmd2; $SHELL'" 
 
 cd /home/jetson/grad_project_jetson/catkin_ws/src/vision/src/imagesCV
+rm -rf *
+cd /home/jetson/grad_project_jetson/catkin_ws/src/vision/src/imagesMap
 rm -rf *
 
 sleep 5
@@ -76,10 +78,25 @@ elif [ "$1" == "slam" ];then #this part runs all the nodes.
 	sleep 5
 	gnome-terminal --command="bash -c '$slamcmd; $SHELL'"
 	sleep 15
+	
+elif [ "$1" == "serial" ];then #this part runs all the nodes.
+	echo "serial is running"
+	gnome-terminal --command="bash -c '$lidarc1; $lidarc2; $lidarcslam; $SHELL'"
+	sleep 5
+	gnome-terminal --command="bash -c '$movcmd; $SHELL'" 
+	sleep 5
+	gnome-terminal --command="bash -c '$serialcmd; $SHELL'"  
+	sleep 5
+
 #elif [[$1 -eq "tcp_test"]]
 #then
 
-
+elif [ "$1" == "savemap" ];then #this part runs all the nodes.
+	echo "slam is running"
+	gnome-terminal --command="bash -c '$lidarc1; $lidarc2; $lidarcslam; $SHELL'"
+	sleep 15
+	gnome-terminal --command="bash -c '$slamcmd; $SHELL'"
+	sleep 15
 
 else
 	echo "Invalid arguments"

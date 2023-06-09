@@ -55,6 +55,49 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
   
     for(int i = 0; i < count; i++) {
         float degree = RAD2DEG(scan->angle_min + scan->angle_increment * i);
+        
+        if(scan->ranges[i] <1000){
+
+            /*
+            if(degree == 0){
+                std_msgs::String msg;
+                std::stringstream ss;
+                ss << '&' << (int)(100*scan->ranges[i]) << '&';
+                msg.data = ss.str();
+                mov_pub.publish(msg);
+            }
+
+
+            if(degree > 90 && degree < 90.3){
+                std_msgs::String msg;
+                std::stringstream ss;
+                ss << '-' << (int)(100*scan->ranges[i]) << '-'; 
+                msg.data = ss.str();
+                mov_pub.publish(msg);
+            }
+            */ //commented out for test purposes
+
+            if(degree > -90.3 && degree < -90){
+                std_msgs::String msg;
+                std::stringstream ss;
+                
+                if((scan->ranges[i]*100) < 100){
+                    
+                    ss << '#' << '0' << (int)(100*scan->ranges[i]) << '#';
+                }
+                else{
+                    
+                    ss << '#' << (int)(100*scan->ranges[i]) << '#';
+                }
+                
+                msg.data = ss.str();
+                mov_pub.publish(msg);
+            }
+            
+        }   
+
+
+        /*
         //ROS_INFO(": [%f, %f]", degree, scan->ranges[i]);
         left_counter++;
         if (degree > 105 && degree < 110){ // sol arkasında kalmalı duvar, ondan dolayı 85,95 aralığı olmuyor.
@@ -94,7 +137,7 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
         //TODO: 
         //filtre eklenecek
         //Önceki değerden fazla çıktığı için uzaklık değeri boşluk bu şekilde anlaşılacak.
-
+        */
 
     }
 }

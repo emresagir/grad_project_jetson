@@ -58,11 +58,20 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
         
         if(scan->ranges[i] <1000){
 
-            /*
+            
             if(degree == 0){
                 std_msgs::String msg;
                 std::stringstream ss;
-                ss << '&' << (int)(100*scan->ranges[i]) << '&';
+                
+                if((scan->ranges[i]*100) < 100){
+                    
+                    ss << '&' << '0' << (int)(100*scan->ranges[i]) << '!';
+                }
+                else if((scan->ranges[i]*100) >= 100) {
+                    
+                    ss << '&' << (int)(100*scan->ranges[i]) << '!';
+                }
+                
                 msg.data = ss.str();
                 mov_pub.publish(msg);
             }
@@ -71,11 +80,20 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
             if(degree > 90 && degree < 90.3){
                 std_msgs::String msg;
                 std::stringstream ss;
-                ss << '-' << (int)(100*scan->ranges[i]) << '-'; 
+                
+                if((scan->ranges[i]*100) < 100){
+                    
+                    ss << '?' << '0' << (int)(100*scan->ranges[i]) << '!';
+                }
+                else if((scan->ranges[i]*100) >= 100) {
+                    
+                    ss << '?' << (int)(100*scan->ranges[i]) << '!';
+                }
+                
                 msg.data = ss.str();
                 mov_pub.publish(msg);
             }
-            */ //commented out for test purposes
+            
 
             if(degree > -90.3 && degree < -90){
                 std_msgs::String msg;
@@ -85,7 +103,7 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
                     
                     ss << '%' << '0' << (int)(100*scan->ranges[i]) << '!';
                 }
-                else{
+                else if((scan->ranges[i]*100) >= 100) {
                     
                     ss << '%' << (int)(100*scan->ranges[i]) << '!';
                 }
@@ -94,6 +112,40 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan)
                 mov_pub.publish(msg);
             }
             
+        }
+        else{
+             
+            if(degree == 0){
+                std_msgs::String msg;
+                std::stringstream ss;
+                
+                ss << '&' << "000" << '!';
+                
+                msg.data = ss.str();
+                mov_pub.publish(msg);
+            }
+
+
+            if(degree > 90 && degree < 90.3){
+                std_msgs::String msg;
+                std::stringstream ss;
+                
+                ss << '?' << "000" << '!';
+                
+                msg.data = ss.str();
+                mov_pub.publish(msg);
+            }
+            
+            if(degree > -90.3 && degree < -90){
+                
+                std_msgs::String msg;
+                std::stringstream ss;
+                
+                ss << '%' << "000" << '!';
+                
+                msg.data = ss.str();
+                mov_pub.publish(msg);
+            }
         }   
 
 
